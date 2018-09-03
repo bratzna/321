@@ -1,0 +1,13 @@
+<?php
+
+require ('baza-parametri.php');
+
+$komponenta_id=(int) @$_REQUEST['komponenta_id'];
+
+$upit = "delete from komponenta where komponenta_id=$komponenta_id";
+$rezultat= mysqli_query($bp,$upit);
+
+if (!$rezultat)
+    die(mysqli_error($bp));
+
+    die(header("Location: komponenta-pregled.php"));
